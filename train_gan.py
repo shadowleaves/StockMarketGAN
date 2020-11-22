@@ -7,6 +7,8 @@ import tensorflow as tf
 
 random.seed(42)
 
+# important for tfv2
+tf.compat.v1.disable_eager_execution()
 
 class TrainGan:
 
@@ -56,7 +58,7 @@ class TrainGan:
         D_l2_loss = 0
         sess.run(tf.compat.v1.global_variables_initializer())
         saver = tf.compat.v1.train.Saver()
-        with open('./models/checkpoint', 'rb') as f:
+        with open('./models/checkpoint', 'r') as f:
             model_name = next(f).split('"')[1]
         saver.restore(sess, "./models/{}".format(model_name))
         for i, X in enumerate(self.random_batch(self.batch_size)):

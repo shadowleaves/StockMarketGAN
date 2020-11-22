@@ -1,0 +1,19 @@
+TensorFlow 2.0 Upgrade Script
+-----------------------------
+Converted 1 files
+Detected 0 issues that require attention
+--------------------------------------------------------------------------------
+================================================================================
+Detailed log follows:
+
+================================================================================
+--------------------------------------------------------------------------------
+Processing file 'train_xgb_boost.py'
+ outputting to 'train_xgb_boost.py'
+--------------------------------------------------------------------------------
+
+23:13: INFO: Renamed 'tf.Session' to 'tf.compat.v1.Session'
+24:21: INFO: Renamed 'tf.global_variables_initializer' to 'tf.compat.v1.global_variables_initializer'
+25:20: INFO: Renamed 'tf.train.Saver' to 'tf.compat.v1.train.Saver'
+--------------------------------------------------------------------------------
+

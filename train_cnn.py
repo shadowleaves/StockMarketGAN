@@ -8,6 +8,7 @@ from sklearn.externals import joblib
 from sklearn.metrics import confusion_matrix
 from plot_confusion_matrix import plot_confusion_matrix
 
+tf.compat.v1.disable_eager_execution()
 random.seed(42)
 
 class TrainCNN:
@@ -75,14 +76,14 @@ class TrainCNN:
             for file in [os.path.join('./logs/test/', f) for f in os.listdir('./logs/test')]:
                 os.remove(file)
 
-        sess = tf.Session()
+        sess = tf.compat.v1.Session()
         loss = 0
         l2_loss = 0
         accuracy = 0
-        saver = tf.train.Saver()
-        train_writer = tf.summary.FileWriter('./logs/train')
-        test_writer = tf.summary.FileWriter('./logs/test')
-        sess.run(tf.global_variables_initializer())
+        saver = tf.compat.v1.train.Saver()
+        train_writer = tf.compat.v1.summary.FileWriter('./logs/train')
+        test_writer = tf.compat.v1.summary.FileWriter('./logs/test')
+        sess.run(tf.compat.v1.global_variables_initializer())
         if os.path.exists('./cnn_models/checkpoint'):
             with open('./cnn_models/checkpoint', 'rb') as f:
                 model_name = next(f).split('"')[1]

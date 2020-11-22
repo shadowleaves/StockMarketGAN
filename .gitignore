@@ -1,2 +1,4 @@
 stock_data/
 models/
+*.pyc
+__pycache__/
